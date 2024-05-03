@@ -33,12 +33,13 @@ const toggleMenu = () => {
 
 <style scoped>
 .navbar {
+    background-color: var(--navy);
     position: fixed;
     top: 0;
     max-width: 220rem;
     width: 100%;
     margin: 0 auto;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .navbar_logo {
