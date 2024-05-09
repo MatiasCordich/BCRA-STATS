@@ -1,14 +1,40 @@
 <template>
   <main class="stats_section">
-      <h2 class="title">Datos del BCRA</h2>
-      <p class="text">
-        Todos los datos se encontraran actualizados a la fecha de disponibilidad.
-      </p>
-      <div class="stats_container">
-        
+    <h2 class="title">Datos del BCRA</h2>
+    <p class="text">
+      Todos los datos se encontraran actualizados a la fecha de disponibilidad.
+    </p>
+    <div class="stats_container">
+      <div v-if="loading">Cargando ...</div>
+      <div v-else-if="error">
+        Hubo un error
       </div>
-    </main>
+      <div v-else>
+        <div v-for="item in data" :key="item.id">
+          {{ item }}
+        </div>
+      </div>
+    </div>
+  </main>
 </template>
+
+<script>
+import { useDataMode } from '@/stores/useData';
+
+export default {
+  setup() {
+    const apiStore = useDataMode()
+
+    apiStore.fetchData()
+
+    return {
+      loading: apiStore.loading,
+      error: apiStore.error,
+      data: apiStore.data
+    }
+  }
+}
+</script>
 
 <style scoped>
 .stats_section {
@@ -41,4 +67,3 @@
   width: 100%;
 }
 </style>
-
