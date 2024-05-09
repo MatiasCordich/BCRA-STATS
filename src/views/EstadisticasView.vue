@@ -5,33 +5,35 @@
       Todos los datos se encontraran actualizados a la fecha de disponibilidad.
     </p>
     <div class="stats_container">
-      <div v-if="loading">Cargando ...</div>
-      <div v-else-if="error">
-        Hubo un error
-      </div>
-      <div v-else>
-        <div v-for="item in data" :key="item.id">
-          {{ item }}
+      <div v-if="loading">Cargando...</div>
+      <div v-else-if="error">Error: {{ error }}</div>
+      <div v-else class="cards_container">
+        <div class="item"  v-for="item in data" :key="item.idVariable">
+          <Card :description="item.descripcion" :valor="item.valor" :fecha="item.fecha"/>
         </div>
       </div>
     </div>
   </main>
 </template>
 
-<script>
+<script setup>
+import Card from '@/components/Card.vue';
+
 import { useDataMode } from '@/stores/useData';
+import { onMounted } from 'vue';
 
+const { data, loading, error, fetchData } = useDataMode()
+
+// Llama a fetchData cuando sea necesario
+onMounted(() => {
+  fetchData();
+});
+</script>
+
+<script>
 export default {
-  setup() {
-    const apiStore = useDataMode()
-
-    apiStore.fetchData()
-
-    return {
-      loading: apiStore.loading,
-      error: apiStore.error,
-      data: apiStore.data
-    }
+  components: {
+    Card
   }
 }
 </script>
@@ -64,6 +66,15 @@ export default {
   align-items: center;
   gap: 2rem;
   max-width: 120rem;
+  width: 100%;
+}
+
+.cards_container,
+.item{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
   width: 100%;
 }
 </style>
