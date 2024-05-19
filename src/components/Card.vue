@@ -10,7 +10,7 @@
 export default {
   props: {
     description: String,
-    valor: String,
+    valor: Number,
     fecha: String
   }
 }

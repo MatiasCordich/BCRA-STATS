@@ -8,10 +8,11 @@ export const useDataMode = () => {
   const fetchData = async () => {
     loading.value = true;
     try {
-      const response = await fetch("https://api.bcra.gob.ar/estadisticas/v1/principalesvariables");
+      const response = await fetch("https://api.bcra.gob.ar/estadisticas/v2.0/principalesvariables");
+      
       const {results} = await response.json();
       data.value = results;
-      console.log(data)
+      
     } catch (err) {
       error.value = err.message;
     } finally {
