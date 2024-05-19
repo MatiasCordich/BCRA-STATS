@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <p class="description">{{description}}</p>
-    <h2 class="valor">{{valor}}</h2>
+    <h2 class="valor">{{ valor.toLocaleString() }}</h2>
     <p class="date">Datos al: <span>{{fecha}}</span></p>
   </div>
 </template>

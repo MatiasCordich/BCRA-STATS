@@ -14,6 +14,10 @@
                 <span>2.</span>
                 <router-link to="/estadisticas" @click="toggleMenu()">Estadisticas</router-link>
             </li>
+            <li class="navbar_link">
+                <span>3.</span>
+                <router-link to="/historial" @click="toggleMenu()">Historial</router-link>
+            </li>
         </ul>
 
         <button class="navbar_btn" @click="toggleMenu()">

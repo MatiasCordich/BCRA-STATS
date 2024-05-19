@@ -1,7 +1,3 @@
-<script setup>
-
-</script>
-
 <template>
   <header class="header">
     <main class="header_container">
@@ -29,7 +25,7 @@
 
 <style scoped>
   .header {
-    margin-top: 10rem;
+    margin-top: 13rem;
     width: 100%;
     height: 64vh;
   }

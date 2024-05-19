@@ -13,6 +13,11 @@ const router = createRouter({
       path: '/estadisticas',
       name: 'estadisticas',
       component: () => import('../views/EstadisticasView.vue')
+    },
+    {
+      path: '/historial',
+      name: 'historial',
+      component: () => import('../views/HistorialView.vue')
     }
   ]
 })
