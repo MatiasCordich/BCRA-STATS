@@ -27,9 +27,7 @@ export const useDataMode = () => {
       const response = await fetch(`https://api.bcra.gob.ar/estadisticas/v2.0/datosvariable/1/2024-02-01/2024-02-05`);
       
       const {results} = await response.json();
-     
-      console.log(results);
-      
+          
     } catch (err) {
       error.value = err.message;
     } finally {

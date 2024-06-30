@@ -9,7 +9,7 @@
       <div v-else-if="error">Error: {{ error }}</div>
       <div v-else class="cards_container">
         <div class="item"  v-for="item in data" :key="item.idVariable">
-          <Card :description="item.descripcion" :valor="item.valor" :fecha="item.fecha"/>
+          <Card class="card" :description="item.descripcion" :valor="item.valor" :fecha="item.fecha"/>
         </div>
       </div>
     </div>
@@ -51,6 +51,7 @@ export default {
   color: var(--grey);
   font-size: calc(4rem + 2.5vw);
   text-align: center;
+  width: 95%;
 }
 
 .text {
@@ -76,5 +77,22 @@ export default {
   align-items: center;
   gap: 1rem;
   width: 100%;
+}
+
+@media (min-width: 640px) {
+    .cards_container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+   
+    }
+
+    .item{
+      height: 100%;
+      justify-items: stretch;
+    }
+
+    .card{
+      height: 100%;
+    }
 }
 </style>
